@@ -1,19 +1,25 @@
-//Express constant definition
+//Express import and definition
 const express = require('express');
 const app = express();
 
-///Port definition
-const port = 3000;
+//Port definition
+const port = process.env.PORT || 3000;
 
+//Import routes related to "polos"
+const polosRoutes = require('./routes/polos');
 
-//Routes
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+app.use(express.json());
 
+//Base route
+app.use('/', polosRoutes);
 
+// Use "polos" routes
+app.use('/polos', polosRoutes);
 
-//Server portal activation
+//Use "polos:id" routes
+app.use('/polos/:id',polosRoutes)
+
+//Server Start
 app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`)
+  console.log(`Server running at http://localhost:${port}`);
 });

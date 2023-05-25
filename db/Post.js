@@ -42,7 +42,6 @@ const updatePolo = async (id,nome, terminal_qtd) => {
   return result.rowCount > 0;
 };
 
-
 module.exports = {
   getPolos,
   getPoloById,
