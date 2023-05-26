@@ -3,11 +3,17 @@ const express = require('express');
 const router = express.Router();
 
 // Import functions from Post.js
-const { getPolos, getPoloById, updatePolo } = require('../db/Polos');
+const { getPolos, getPoloById, updatePolo, getPolosWithZeroStock } = require('../db/Polos');
 
 //Base route
 router.get('/', async (req, res) => {
   const polos = await getPolos();
+  res.json(polos);
+});
+
+//Look for poles with zero in stock
+router.get('/empty', async (req, res) => {
+  const polos = await getPolosWithZeroStock();
   res.json(polos);
 });
 

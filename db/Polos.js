@@ -42,10 +42,18 @@ const updatePolo = async (id,nome, terminal_qtd) => {
   return result.rowCount > 0;
 };
 
+//Get zero stock
+const getPolosWithZeroStock = async () => {
+  const result = await pool.query('SELECT * FROM PoloEstoque WHERE terminal_qtd = 0');
+  return result.rows;
+};
+
+
 module.exports = {
   getPolos,
   getPoloById,
   updatePolo,
+  getPolosWithZeroStock
 };
 
 
