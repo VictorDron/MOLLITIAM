@@ -10,14 +10,9 @@ const polosRoutes = require('./routes/polos');
 
 app.use(express.json());
 
-//Base route
-app.use('/', polosRoutes);
-
-// Use "polos" routes
 app.use('/polos', polosRoutes);
 
-//Use "polos:id" routes
-app.use('/polos/:id',polosRoutes)
+
 
 //Server Start
 app.listen(port, () => {
