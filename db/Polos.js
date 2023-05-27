@@ -34,12 +34,18 @@ const getPoloById = async (id) => {
   return result.rows[0];
 };
 //Update pole information
-const updatePolo = async (id,nome, terminal_qtd) => {
-  const result = await pool.query(
-    'UPDATE PoloEstoque SET nome = $2, terminal_qtd = $3, data_atualizacao = CURRENT_TIMESTAMP WHERE id = $1',
-    [id, nome, terminal_qtd]
-  );
-  return result.rowCount > 0;
+// Update pole information
+const updatePolo = async (id, terminal_qtd_delta) => {
+  try {
+    const result = await pool.query(
+      'UPDATE PoloEstoque SET terminal_qtd = terminal_qtd + $2, data_atualizacao = CURRENT_TIMESTAMP WHERE id = $1 RETURNING *',
+      [id, terminal_qtd_delta]
+    );
+    return result.rowCount > 0;
+  } catch (error) {
+    console.error('Error in updatePolo: ', error);
+    throw error;
+  }
 };
 
 //Get zero stock
