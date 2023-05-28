@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // Import functions from Post.js
-const { getPolos, getPoloById, updatePolo, getPolosWithZeroStock } = require('../db/Polos');
+const { getPolos, getPoloById, updatePolo, getPolosWithZeroStock,createHistory} = require('../db/Bases');
 
 //Base route
 router.get('/', async (req, res) => {
@@ -41,6 +41,9 @@ router.post('/expedition', async (req, res) => {
     const success2 = await updatePolo(destino_id, terminal_qtd);
 
     if (success1 && success2) {
+      // Create a new history record
+      await createHistory(origem_id, destino_id, terminal_qtd);
+
       res.status(200).json({ message: 'Expedição realizada com sucesso' });
     } else {
       res.status(404).json({ message: 'Expedição falhou' });
@@ -49,6 +52,7 @@ router.post('/expedition', async (req, res) => {
     res.status(500).json({ message: 'Erro na expedição', error: error });
   }
 });
+
 
 //Search by id
 router.get('/:id', async (req, res) => {

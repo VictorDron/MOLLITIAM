@@ -33,7 +33,7 @@ const getPoloById = async (id) => {
   const result = await pool.query('SELECT * FROM PoloEstoque WHERE id = $1', [id]);
   return result.rows[0];
 };
-//Update pole information
+
 // Update pole information
 const updatePolo = async (id, terminal_qtd_delta) => {
   try {
@@ -54,12 +54,26 @@ const getPolosWithZeroStock = async () => {
   return result.rows;
 };
 
+// Create a new history record
+const createHistory = async (origem_id, destino_id, terminal_qtd) => {
+  try {
+    const result = await pool.query(
+      'INSERT INTO history (origem_id, destino_id, terminal_qtd) VALUES ($1, $2, $3)',
+      [origem_id, destino_id, terminal_qtd]
+    );
+    return result.rowCount > 0;
+  } catch (error) {
+    console.error('Error in createHistory: ', error);
+    throw error;
+  }
+};
 
 module.exports = {
   getPolos,
   getPoloById,
   updatePolo,
-  getPolosWithZeroStock
+  getPolosWithZeroStock,
+  createHistory
 };
 
 
