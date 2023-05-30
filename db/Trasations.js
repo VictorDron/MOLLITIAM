@@ -13,17 +13,6 @@ const pool = new Pool({
   port: process.env.PGPORT,
 });
 
-//db connection validation
-pool.query('SELECT version()', (error, results) => {
-  if (error) {
-    console.error('Error connecting to the database:', error);
-  } else {
-    console.log('Database connection successful. PostgreSQL version:', results.rows[0].version);
-  }
-  //pool.end();
-});
-
-
 //Get full History
 const getHistory = async () => {
   const result = await pool.query('SELECT * FROM history');

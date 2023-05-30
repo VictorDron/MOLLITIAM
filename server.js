@@ -1,25 +1,24 @@
-//Express import and definition
+// Express is imported and an Express application is instantiated
 const express = require('express');
 const app = express();
 
-//Port definition
+// Definition of the port where the server will listen. The value is taken from the environment variables, or 3000 if not defined
 const port = process.env.PORT || 3000;
 
-//Import routes related to "polos"
+// Importing the routers that handle the routes related to "polos", "history", and "critical"
 const polosRoutes = require('./routes/polos');
-//Import routes related to "history"
 const historyRoutes = require('./routes/history');
+const criticalRoutes = require('./routes/critical');
 
+// Middleware to parse the body of requests as JSON
 app.use(express.json());
 
-//base route to poles
+// Setting the base routes for the imported routers
 app.use('/polos', polosRoutes);
-//base route to history
 app.use('/history', historyRoutes);
+app.use('/critical', criticalRoutes);
 
-
-
-//Server Start
+// Starts the server to listen on the defined port
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
