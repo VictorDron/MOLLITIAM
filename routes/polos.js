@@ -2,8 +2,12 @@
 const express = require('express');
 const router = express.Router();
 
-// Import functions from Post.js
+// Import functions from Bases
 const { getPolos, getPoloById, updatePolo, getPolosWithZeroStock,createHistory} = require('../db/Bases');
+// Import functions from Level
+const calculateStockCoverage = require('../db/Level');
+// Import database functions
+const { getHistory } = require('../db/Transations');
 
 //Base route
 router.get('/', async (req, res) => {
@@ -53,6 +57,27 @@ router.post('/expedition', async (req, res) => {
   }
 });
 
+// Create the route for getting all history records
+router.get('/history', async (req, res) => {
+  try {
+    const history = await getHistory();
+    res.json(history);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving history', error: error });
+  }
+});
+
+//Critical Level
+router.get('/search/:id', async (req, res) => {
+    
+  if (!isNaN(req.params.id)) {
+      const id = parseInt(req.params.id);
+      const coverageData = await calculateStockCoverage(id);
+      res.json(coverageData);
+  } else {
+      res.status(400).json({ error: 'Invalid ID' });
+  }
+});
 
 //Search by id
 router.get('/:id', async (req, res) => {

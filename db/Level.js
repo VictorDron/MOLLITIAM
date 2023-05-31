@@ -48,12 +48,9 @@ async function calculateStockCoverage(id) {
         level: coverageLevel
       });
     }
-    console.log(coverageData);
+
     return coverageData;
 }
-
-
-calculateStockCoverage(65);
 
 
 module.exports = calculateStockCoverage;
