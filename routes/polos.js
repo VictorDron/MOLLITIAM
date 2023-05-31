@@ -5,7 +5,8 @@ const router = express.Router();
 // Import functions from Bases
 const { getPolos, getPoloById, updatePolo, getPolosWithZeroStock,createHistory} = require('../db/Bases');
 // Import functions from Level
-const calculateStockCoverage = require('../db/Level');
+const { calculateStockCoverage, adjustStockLevel } = require('../db/Level');
+
 // Import database functions
 const { getHistory } = require('../db/Transations');
 
@@ -67,6 +68,7 @@ router.get('/history', async (req, res) => {
   }
 });
 
+
 //Critical Level
 router.get('/search/:id', async (req, res) => {
     
@@ -99,6 +101,22 @@ router.put('/:id', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ message: 'Erro ao atualizar o polo', error: error });
+  }
+});
+
+//Route for adjusting the stock level
+router.post('/adjust/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+      const success = await adjustStockLevel(id);
+      if (success) {
+          res.status(200).json({ message: 'Stock level adjusted successfully.' });
+      } else {
+          res.status(500).json({ message: 'Failed to adjust stock level.' });
+      }
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'An error occurred while adjusting stock level.' });
   }
 });
 

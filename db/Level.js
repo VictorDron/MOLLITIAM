@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const { updatePolo } = require('./Bases');
 
 require('dotenv').config();
 
@@ -12,7 +13,6 @@ const pool = new Pool({
 
 //Analyzes the level of criticality levels of the bases
 async function calculateStockCoverage(id) {
-    // Faz uma consulta ao banco de dados para obter a média de consumo diário por base
     const result = await pool.query(`
       WITH daily_consumption AS (
         SELECT base, date, COUNT(*) as consumption
@@ -31,8 +31,7 @@ async function calculateStockCoverage(id) {
     `, [id]);
   
     const coverageData = [];
-  
-    // Exibe a média de consumo por base e a quantidade de terminais em estoque
+
     for (let row of result.rows) {
       const coverageDays = row.terminal_qtd / row.average_consumption;
       const coverageLevel = coverageDays < 10 ? 'PERIGO' : 
@@ -52,5 +51,38 @@ async function calculateStockCoverage(id) {
     return coverageData;
 }
 
+// This function will be called when the button is clicked to adjust the stock level
+async function adjustStockLevel(id) {
+  // Get the current coverage data
+  const coverageData = await calculateStockCoverage(id);
 
-module.exports = calculateStockCoverage;
+  // Check if coverageData is not empty
+  if (coverageData.length > 0) {
+      // Get the current terminal quantity and average consumption
+      const currentTerminalQty = coverageData[0].terminalQuantity;
+      const averageConsumption = coverageData[0].averageConsumption;
+
+      // Calculate the terminal quantity for ideal stock coverage (16.5 days)
+      const idealTerminalQty = Math.round(averageConsumption * 16.5);
+
+      // If the current terminal quantity is not equal to the ideal terminal quantity,
+      // adjust the terminal quantity
+      if (currentTerminalQty !== idealTerminalQty) {
+          const terminalQtyChange = Math.round(idealTerminalQty - currentTerminalQty);
+          const success = await updatePolo(id, terminalQtyChange);
+          return success;
+      }
+  }
+
+  return false;
+}
+
+
+
+
+
+
+
+
+
+module.exports = { calculateStockCoverage, adjustStockLevel };
