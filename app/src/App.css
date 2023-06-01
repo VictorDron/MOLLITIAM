@@ -1,42 +1,240 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.box_1 {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 900px;
+  border-left: 1px solid #5ad15a;
+  border-right: 1px solid #5ad15a;
+}
+
+.select {
+  width: 100%;
+  height: 3%;
+  margin-top: 1%;
+}
+
+.select .select_1 {
+  width: 80%;
+  color: #5ad15a;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 100%;
+  border: 1px solid #5ad15a;
+  border-radius: 10px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.select .select_1 option {
+  color: #5ad15a;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title_stock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 4%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 4%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.title_stock h1 {
+  font-size: 100%;
+  color: #5ad15a;
 }
 
-.card {
-  padding: 2em;
+.stock_value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 1px solid #5ad15a;
+  border-radius: 10px;
 }
 
-.read-the-docs {
-  color: #888;
+.stock_value {
+  color: #5ad15a;
+}
+
+.title_critical {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+}
+
+.title_critical h1 {
+  font-size: 100%;
+  color: #5ad15a;
+}
+
+.title_level.perigo {
+  color: red;
+}
+
+.title_level.atenção {
+  color: yellow;
+}
+
+.title_level.cobertura_ideal {
+  color: green;
+}
+
+
+.critical {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
+  
+}
+
+.critical .critical_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 170px;
+  border-radius: 100%;
+  
+ 
+}
+
+.critical .critical_img img {
+  width: 70%;
+  height: 70%;
+}
+
+.critical_img.perigo {
+  background-color: red;
+}
+
+.critical_img.atenção {
+  background-color: yellow;
+}
+
+.critical_img.cobertura_ideal {
+  background-color: green;
+}
+
+.title_expediction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 4%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 4%;
+}
+
+.title_expediction h1 {
+  font-size: 100%;
+  color: #5ad15a;
+}
+
+.expediction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 1px solid #5ad15a;
+  border-radius: 10px;
+}
+
+.expediction form {
+  width: 100%;
+  text-align: center;
+}
+
+.expediction .select_2 {
+  width: 30%;
+  color: #5ad15a;
+  border: 1px solid #5ad15a;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.expediction .select_2 option {
+  color: #5ad15a;
+}
+
+.expediction form input {
+  width: 30%;
+  color: #5ad15a;
+  border: 1px solid #5ad15a;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 1%;
+}
+
+.expediction form input::placeholder {
+  color: #5ad15a;
+}
+
+.expediction form button {
+  width: 30%;
+  color: #5ad15a;
+  background-color: white;
+  border: 1px solid #5ad15a;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 1%;
+}
+
+.adjust_level {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 1%;
+}
+
+.adjust_level button {
+  width: 40%;
+  height: 40%;
+  color: white;
+  background-color: #5ad15a;
+  border: 1px solid #5ad15a;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.adjust_level button:hover {
+  color: #5ad15a;
+  background-color: white;
+}
+
+.history {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  border: 1px solid #5ad15a;
+  border-radius: 10px;
 }
