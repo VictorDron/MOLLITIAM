@@ -1,0 +1,26 @@
+.adjust_level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+}
+  
+.adjust_level button {
+    width: 80%;
+    height: 40%;
+    color: white;
+    background-color: #5ad15a;
+    border: 1px solid #5ad15a;
+    border-radius: 10px;
+    text-align: center;
+}
+  
+.adjust_level button:hover {
+    color: #5ad15a;
+    background-color: white;
+}
+  

@@ -1,0 +1,43 @@
+.critical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 35%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    
+}
+
+.critical h1{
+    font-size: 25px;
+}
+  
+.critical .critical_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:30% ;
+    height: 80%;
+    border-radius: 100%;
+}
+  
+.critical .critical_img img {
+    width: 80%;
+    height: 80%;
+}
+  
+.critical_img.perigo {
+    background-color: red;
+}
+  
+.critical_img.atenção {
+    background-color: yellow;
+}
+  
+.critical_img.cobertura_ideal {
+    background-color: green;
+}
+  

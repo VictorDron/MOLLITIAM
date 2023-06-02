@@ -1,0 +1,55 @@
+
+  
+.expediction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    border: 1px solid #5ad15a;
+    border-radius: 10px;
+}
+  
+.expediction .form {
+    width: 100%;
+    text-align: center;
+}
+  
+.expediction .select_2 {
+    width: 30%;
+    color: #5ad15a;
+    border: 1px solid #5ad15a;
+    border-radius: 10px;
+    text-align: center;
+}
+  
+.expediction .select_2 option {
+    color: #5ad15a;
+}
+  
+.expediction .form input {
+    width: 30%;
+    color: #5ad15a;
+    border: 1px solid #5ad15a;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 1%;
+}
+  
+.expediction .form input::placeholder {
+    color: #5ad15a;
+}
+  
+.expediction .form button {
+    width: 30%;
+    color: #5ad15a;
+    background-color: white;
+    border: 1px solid #5ad15a;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 1%;
+}
+  
