@@ -1,0 +1,58 @@
+.history-table-container {
+    max-height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+  
+.history-table-container:hover {
+    overflow-y: auto;
+}
+  
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+  
+.history-table th,
+.history-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #5ad15a;
+    color: #5ad15a; /* Cor das letras das células */
+}
+  
+.history-table th {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    font-weight: bold;
+    color: #5ad15a; /* Cor das letras do cabeçalho */
+}
+  
+.history-table thead th {
+    z-index: 1;
+}
+  
+  .history-table tbody {
+    overflow-y: scroll;
+    height: 100%;
+}
+  
+.history-table tbody::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.history-table tbody::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+.history-table tbody::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+  
+.history-table tbody::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+  

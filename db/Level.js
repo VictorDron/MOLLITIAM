@@ -78,11 +78,4 @@ async function adjustStockLevel(id) {
 }
 
 
-
-
-
-
-
-
-
 module.exports = { calculateStockCoverage, adjustStockLevel };

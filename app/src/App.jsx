@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import './App.css';
+
 
 import PoloSelect from './components/PoloSelect/PoloSelect';
 import StockDisplay from './components/StockDisplay/StockDisplay';
 import DangerLevelDisplay from './components/DangerLevelDisplay/DangerLevelDisplay';
 import TerminalTransfer from './components/TerminalTransfer/TerminalTransfer';
 import AdjustLevelButton from './components/AdjustLevelButton/AdjustLevelButton';
+import HistoryTable from './components/HistoryTable/HistoryTable';
 
 function App() {
   const [polos, setPolos] = useState([]);
@@ -126,6 +127,7 @@ function App() {
           onTransferSubmit={handleTransferSubmit}
         />
         <AdjustLevelButton handleAdjustLevelClick={handleAdjustLevelClick} />
+        <HistoryTable />
       </div>
     </>
   );
