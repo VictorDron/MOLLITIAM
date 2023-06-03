@@ -198,13 +198,9 @@ Ele renderiza um seletor de polos usando a tag select. A classe CSS select_1 é 
 
 Diretório App/components/ StockDisplay.jsx:
 •	O componente StockDisplay é uma função React que recebe a propriedade stockValue.
-
 •	Ele renderiza o valor do estoque de terminais dentro de um <div> com a classe CSS stock_value.
-
 •	O valor do estoque é exibido como um cabeçalho <h1> com a classe CSS stock_result.
-
 •	O componente StockDisplay é exportado como padrão para ser usado em outros componentes.
-
 •	O componente StockDisplay é responsável por exibir o valor do estoque de terminais. Ele recebe o valor como propriedade e o renderiza na interface do usuário. É utilizado para informar ao usuário a quantidade atual de terminais disponíveis no polo selecionado.
 
 Diretório App/components/ DangerLevelDisplay.jsx:
