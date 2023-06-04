@@ -1,4 +1,4 @@
-// StockDisplay.js
+// StockDisplay.js component
 import React from 'react';
 
 import './StockDisplay.css';

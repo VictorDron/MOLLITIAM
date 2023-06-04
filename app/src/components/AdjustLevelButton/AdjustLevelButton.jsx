@@ -1,4 +1,4 @@
-// AdjustLevelButton
+// AdjustLevelButton component
 import React from 'react';
 
 import './AdjustLevelButton.css';

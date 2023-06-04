@@ -1,4 +1,4 @@
-// DangerLevelDisplay
+// DangerLevelDisplay component
 import React from 'react';
 
 import './DangerLevelDisplay.css'

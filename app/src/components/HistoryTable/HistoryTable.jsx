@@ -4,9 +4,11 @@ import { useTable } from 'react-table';
 import './HistoryTable.css';
 
 const HistoryTable = () => {
+  // State variables
   const [historyData, setHistoryData] = useState([]);
   const [polosData, setPolosData] = useState([]);
 
+  // Fetch history data and polos data on component mount
   useEffect(() => {
     const fetchHistoryData = async () => {
       try {
@@ -30,6 +32,7 @@ const HistoryTable = () => {
     fetchPolosData();
   }, []);
 
+  // Fetch updated history data when historyData changes
   useEffect(() => {
     const fetchUpdatedHistoryData = async () => {
       try {
@@ -43,11 +46,13 @@ const HistoryTable = () => {
     fetchUpdatedHistoryData();
   }, [historyData]);
 
+  // Get the name of the polo based on its id
   const getPolosName = (id) => {
     const polo = polosData.find((polo) => polo.id === id);
     return polo ? polo.nome : '';
   };
 
+  // Define the columns for the table
   const columns = React.useMemo(
     () => [
       {
@@ -68,6 +73,7 @@ const HistoryTable = () => {
     [polosData]
   );
 
+  // Prepare the data for the table
   const data = React.useMemo(
     () =>
       historyData.map((item) => ({
@@ -78,6 +84,7 @@ const HistoryTable = () => {
     [historyData]
   );
 
+  // Use the react-table library to create the table instance
   const {
     getTableProps,
     getTableBodyProps,
@@ -86,6 +93,7 @@ const HistoryTable = () => {
     prepareRow,
   } = useTable({ columns, data });
 
+  // Render the table
   return (
     <div className="history-table-container">
       <table {...getTableProps()} className="history-table">
