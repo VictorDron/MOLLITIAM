@@ -50,6 +50,26 @@
     border: 1px solid #5ad15a;
     border-radius: 10px;
     text-align: center;
+     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
     margin-top: 1%;
 }
+
+.expediction .form button:hover {
+    color: white;
+    background-color: #5ad15a;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.expediction .form button:active{
+    box-shadow: none;
+    transform: translateY(0);
+
+}
+
+
   
